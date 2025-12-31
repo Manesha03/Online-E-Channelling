@@ -1,0 +1,36 @@
+1746378348825	Move 'contact.css' to 'css'
+1746420494163	Rename type 'UserModel'
+1746426140769	Delete element
+1746426543894	Delete element
+1746426657488	Delete element
+1746434037181	Delete element
+1746434183822	Delete element
+1746434534791	Delete element
+1746434920432	Delete element
+1746441794205	Delete element
+1746468415488	Rename type 'PatientService'
+1746520139928	Delete element
+1746520158753	Rename type 'Patient'
+1746521553277	Delete element
+1746521568497	Rename type 'PatientDAO'
+1746523434725	Delete element
+1746533585237	Rename resource 'patientProfile.jsp'
+1746653770710	Delete element
+1746653846733	Delete element
+1746653898633	Delete element
+1746653904687	Delete element
+1746730521457	Rename type 'PatientDeleteServlet'
+1746772719416	Rename resource 'XML.xml'
+1746810269918	Delete element
+1746810276013	Delete element
+1746810328096	Delete element
+1746810351738	Delete element
+1746810363092	Delete element
+1746810377729	Delete element
+1746814112068	Delete element
+1746879232515	Delete element
+1746908237217	Move 'AddDoctor.jsp' to 'webapp'
+1746908254156	Move 'done.jsp' to 'webapp'
+1746908554986	Move 'Screenshot 2025-05-11 004105.png' to 'images'
+1746908830108	Move 'wrong.jsp' to 'webapp'
+1746916415792	Rename resource 'admin.jsp'

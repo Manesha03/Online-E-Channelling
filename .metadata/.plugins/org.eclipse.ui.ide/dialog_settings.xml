@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jst.j2ee.internal"/>
+			<item value="org.eclipse.jpt.jaxb"/>
+			<item value="org.eclipse.pde.PDE"/>
+		</list>
+		<section name="NewWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="0"/>
+			<item key="DIALOG_Y_ORIGIN" value="0"/>
+			<item key="DIALOG_WIDTH" value="700"/>
+			<item key="DIALOG_HEIGHT" value="505"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\User\Downloads\DSA Exam\question1\Answer2"/>
+			<item value="C:\Users\User\Downloads\DSA Exam\question1\Answer1"/>
+			<item value="C:\Users\User\Downloads\Test 01\Test 01\LinkList"/>
+			<item value="C:\Users\User\Downloads\Test 01\Test 01\Tree"/>
+			<item value="C:\Users\User\Downloads\Test 01\Test 01\Queue"/>
+			<item value="C:\Users\User\Downloads\Test 01\Test 01\Stack"/>
+			<item value="C:\Users\User\Downloads\Test 01\Test 01\Queue &amp; Stack Combination"/>
+			<item value="C:\Users\User\eclipse-workspace\Echannelling final"/>
+			<item value="C:\Users\User\eclipse-workspace\Echannelling"/>
+			<item value="C:\Users\User\eclipse-workspace\EchannellingKavya"/>
+			<item value="C:\Users\User\eclipse-workspace\addingdoctors"/>
+			<item value="C:\Users\User\eclipse-workspace\E-Channeling-main\E-Channeling-main\E-Channeling"/>
+			<item value="C:\Users\User\eclipse-workspace\Online-E-channeling-System-master\Online-E-channeling-System-master"/>
+			<item value="C:\Users\User\eclipse-workspace\Online-E-channeling-System-main (1)\Online-E-channeling-System-main\e-channellingdemo"/>
+			<item value="C:\Users\User\eclipse-workspace\Online-E--Channeling-System-main\Online-E--Channeling-System-main"/>
+			<item value="C:\Users\User\eclipse-workspace\Online_E-Channeling_System-main\Online_E-Channeling_System-main"/>
+			<item value="C:\Users\User\eclipse-workspace\HaloMed"/>
+			<item value="C:\Users\User\eclipse-workspace\Echanneling"/>
+			<item value="C:\Users\User\eclipse-workspace\Online-E---Channeling-System-main\Online-E---Channeling-System-main\Online E - Channeling System"/>
+			<item value="C:\Users\User\eclipse-workspace\Online-E-Channeling-System-main\Online-E-Channeling-System-main\OnlineE-Channeling"/>
+			<item value="C:\Users\User\eclipse-workspace\Online_E-Channeling_System-main"/>
+			<item value="C:\Users\User\eclipse-workspace\OnlineE-Channeling"/>
+		</list>
+		<section name="SmartImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="502"/>
+			<item key="DIALOG_Y_ORIGIN" value="35"/>
+			<item key="DIALOG_WIDTH" value="935"/>
+			<item key="DIALOG_HEIGHT" value="726"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+</section>

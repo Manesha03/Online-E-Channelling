@@ -1,0 +1,44 @@
+package Nov23_VersionA;
+
+public class Employee {
+	public String employeeId;
+	public String name;
+	public String jobTitle;
+	public double salary;
+	
+	public Employee(String employeeId, String name, String jobTitle, double salary) {
+		super();
+		this.employeeId = employeeId;
+		this.name = name;
+		this.jobTitle = jobTitle;
+		this.salary = salary;
+	}
+	
+	public Employee() {}
+	
+	public String getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getJobTitle() {
+		return jobTitle;
+	}
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+}

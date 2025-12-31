@@ -1,0 +1,241 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*, com.echannelling.util.DBConnection" %>
+<%
+    String appointmentId = request.getParameter("appointmentId");
+    double paymentAmount = 0.0;
+
+    if (appointmentId != null) {
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT test_price FROM lab_appointments WHERE appointment_id = ?")) {
+            ps.setInt(1, Integer.parseInt(appointmentId));
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                paymentAmount = rs.getDouble("test_price");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HaloMed | Secure Lab Payment</title>
+  <link rel="shortcut icon" href="images/halomed2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #b3e5fc, #e0f7fa);
+      overflow-x: hidden;
+    }
+    .content-wrapper {
+      min-height: calc(100vh - 130px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 150px 20px 0;
+    }
+    .container {
+      display: flex;
+      width: 850px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .image-section {
+      flex: 1;
+      background: url('images/med8.jpg') center/cover no-repeat;
+    }
+    .form-section {
+      flex: 1;
+      padding: 30px 40px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #00796b;
+    }
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    label, input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    input {
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+    .error-text {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 10px;
+      display: none;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #00796b;
+    }
+    .success-message {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #2e7d32;
+      font-size: 16px;
+    }
+    .view-summary-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #81d4fa;
+      text-decoration: none;
+      border-radius: 8px;
+      color: #004d40;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .view-summary-button:hover {
+      background: #4fc3f7;
+    }
+  </style>
+  <script>
+    function validateCardholderName() {
+      const name = document.getElementById("cardName").value.trim();
+      const nameError = document.getElementById("nameError");
+      const regex = /^[A-Za-z\s]{2,}$/;
+      if (!regex.test(name)) {
+        nameError.textContent = "Invalid name. Only letters and spaces allowed (min 2 characters).";
+        nameError.style.display = "block";
+        return false;
+      }
+      nameError.style.display = "none";
+      return true;
+    }
+
+    function validateCardNumber() {
+      const number = document.getElementById("cardNumber").value.replace(/\s+/g, "");
+      const numberError = document.getElementById("numberError");
+      const regex = /^\d{16}$/;
+      if (!regex.test(number)) {
+        numberError.textContent = "Invalid card number. Please enter a valid 16-digit card number.";
+        numberError.style.display = "block";
+        return false;
+      }
+      numberError.style.display = "none";
+      return true;
+    }
+
+    function validateExpiry() {
+      const expiry = document.getElementById("expiry").value.trim();
+      const expiryError = document.getElementById("expiryError");
+      const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+
+      if (!regex.test(expiry)) {
+        expiryError.textContent = "Invalid expiry. Format must be MM/YY.";
+        expiryError.style.display = "block";
+        return false;
+      }
+
+      const [month, year] = expiry.split("/").map(Number);
+      const now = new Date();
+      const currentMonth = now.getMonth() + 1;
+      const currentYear = now.getFullYear() % 100;
+
+      if (year < currentYear || (year === currentYear && month < currentMonth)) {
+        expiryError.textContent = "Card expired. Please use a valid expiry date.";
+        expiryError.style.display = "block";
+        return false;
+      }
+
+      expiryError.style.display = "none";
+      return true;
+    }
+
+    function validateCVV() {
+      const cvv = document.getElementById("cvv").value.trim();
+      const cvvError = document.getElementById("cvvError");
+      const regex = /^\d{3,4}$/;
+
+      if (!regex.test(cvv)) {
+        cvvError.textContent = "Invalid CVV. It must be 3 or 4 digits.";
+        cvvError.style.display = "block";
+        return false;
+      }
+      cvvError.style.display = "none";
+      return true;
+    }
+
+    function validateForm() {
+      const validName = validateCardholderName();
+      const validNumber = validateCardNumber();
+      const validExpiry = validateExpiry();
+      const validCVV = validateCVV();
+      return validName && validNumber && validExpiry && validCVV;
+    }
+  </script>
+</head>
+<body>
+  <%@ include file="header.jsp" %>
+  <div class="content-wrapper">
+    <div class="container">
+      <div class="image-section"></div>
+      <div class="form-section">
+        <h2>Complete Your Payment</h2>
+        <p>We accept payments via Visa, MasterCard, American Express, and PayPal.</p>
+        <form action="LabPaymentServlet" method="post" onsubmit="return validateForm()">
+          <input type="hidden" name="appointmentId" value="<%= appointmentId %>" />
+
+          <label for="cardName">Cardholder Name</label>
+          <input type="text" id="cardName" name="cardName" placeholder="John Doe" required />
+          <div id="nameError" class="error-text"></div>
+
+          <label for="cardNumber">Card Number</label>
+          <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required />
+          <div id="numberError" class="error-text"></div>
+
+          <label for="expiry">Expiry (MM/YY)</label>
+          <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required />
+          <div id="expiryError" class="error-text"></div>
+
+          <label for="cvv">CVV</label>
+          <input type="password" id="cvv" name="cvv" placeholder="123" maxlength="4" required />
+          <div id="cvvError" class="error-text"></div>
+
+          <label for="paymentAmount">Payment Amount (LKR)</label>
+          <input type="text" id="paymentAmount" name="paymentAmount" value="<%= paymentAmount %>" readonly required />
+
+          <button type="submit">Pay & Confirm</button>
+
+          <div class="success-message" style="display:<%= request.getParameter("success") != null ? "block" : "none" %>">
+            ✅ Payment successful! Your lab appointment is confirmed.<br />
+            <a href="ViewAppointment.jsp?appointmentId=<%= appointmentId %>" class="view-summary-button">View Appointment & Payment Summary</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <%@ include file="footer.jsp" %>
+</body>
+</html>

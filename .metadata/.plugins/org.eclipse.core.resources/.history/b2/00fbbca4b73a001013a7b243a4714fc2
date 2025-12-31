@@ -1,0 +1,9 @@
+package Nov23_VersionA;
+
+public class Employee {
+	private String employeeId;
+	private String name;
+	private String jobTitle;
+	private double salary;
+
+}
