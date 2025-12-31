@@ -1,19 +1,35 @@
 # HaloMed – E-Channeling System 🏥
 
-HaloMed is a full-stack web application developed as part of an academic group project to streamline and digitize the medical e-channeling process. The system improves appointment scheduling efficiency, centralizes healthcare service management, and demonstrates a scalable architecture suitable for real-world deployment.
+**HaloMed** is a full-stack web-based **E-Channeling System** developed as an academic group project in 2nd Year 1st Semester under the module **IT2030 – Object Oriented Programming** for the **BSc (Hons) in Information Technology** degree program.  
+The system digitizes the medical e-channeling process by improving appointment scheduling efficiency, centralizing healthcare service management, and demonstrating a scalable, real-world–ready architecture.
 
 ---
 
-## 🚀 Features
+## 🚀 Core Features
 
-- Online appointment scheduling for patients  
-- Centralized management of doctors, lab tests, and users  
-- Secure and structured role-based system  
-- Scalable and maintainable MVC architecture 
+### 🔐 User Authentication & Profile Management
+- Patient registration and secure authentication  
+- Role-based access control for system users  
+- Profile management and personal detail updates  
+
+### 📅 Appointment Management
+- Online appointment booking for patients  
+- Real-time management of appointment schedules  
+- View, update, and manage appointments efficiently  
+
+### 🩺 Doctor Management
+- Doctor profile creation and specialization management  
+- Availability and schedule management  
+- Centralized doctor data handling  
+
+### 🧪 Lab Test Management
+- Manage lab test listings and availability  
+- Schedule lab tests through the system  
+- Centralized lab-related data management  
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
 - **Backend:** Java (JDK), JSP  
 - **Frontend:** Tailwind CSS  
@@ -24,27 +40,39 @@ HaloMed is a full-stack web application developed as part of an academic group p
 
 ---
 
-## 📦 Core Modules
+## 📦 System Modules
 
-- **User Management** – Patient registration, authentication, and profile handling  
-- **Doctor Management** – Doctor profiles, availability, and specialization management  
-- **Lab Test Management** – Lab test listings and scheduling  
-- **Appointment Management** – Booking, viewing, and managing appointments  
+- User Management  
+- Doctor Management  
+- Lab Test Management  
+- Appointment Management  
 
 ---
 
 ## 🗂️ Project Architecture
 
 The application follows the **MVC (Model–View–Controller)** pattern:
+
 - **Model:** Handles database interactions and business logic  
 - **View:** JSP pages styled using Tailwind CSS  
 - **Controller:** Manages application flow and user requests  
 
 ---
 
+## 🎯 Project Highlights
+
+- Digital transformation of medical e-channeling workflows  
+- Secure role-based system design  
+- Scalable and maintainable MVC architecture  
+- Practical implementation of Java-based full-stack development  
+
+---
+
 ## 📄 License
-  
-This project was developed under module IT2030 – Object Oriented Programming   
-BSc (Hons) in Information Technology  
-This project is intended **for academic and learning purposes only**.  
+
+This project is intended **strictly for academic and learning purposes only**.  
 Unauthorized commercial use, redistribution, or modification without proper acknowledgment is not permitted.
+
+---
+
+🩺 Your Health, Our Priority
