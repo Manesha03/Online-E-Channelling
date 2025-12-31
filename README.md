@@ -44,7 +44,7 @@ The application follows the **MVC (Model–View–Controller)** pattern:
 
 ## 📄 License
   
-This project was developed under module IT2030 – Object Oriented Programming
-BSc (Hons) in Information Technology
+This project was developed under module IT2030 – Object Oriented Programming   
+BSc (Hons) in Information Technology  
 This project is intended **for academic and learning purposes only**.  
 Unauthorized commercial use, redistribution, or modification without proper acknowledgment is not permitted.
